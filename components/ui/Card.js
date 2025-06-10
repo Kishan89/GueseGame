@@ -1,16 +1,20 @@
-import { StyleSheet } from "react-native";
-import { View } from "react-native";
-import Colors from "../../constants/colors";
-function Card({ children }) {
-    return <View style={styles.inputContainer}>{children}</View>
+import { View, StyleSheet, Dimensions } from 'react-native';
 
+import Colors from '../../constants/colors';
+
+function Card({ children }) {
+    return <View style={styles.card}>{children}</View>;
 }
+
 export default Card;
+
+const deviceWidth = Dimensions.get('window').width;
+
 const styles = StyleSheet.create({
-    inputContainer: {
+    card: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 100,
+        marginTop: deviceWidth < 380 ? 18 : 36,
         marginHorizontal: 24,
         padding: 16,
         backgroundColor: Colors.primary800,
@@ -21,4 +25,4 @@ const styles = StyleSheet.create({
         shadowRadius: 6,
         shadowOpacity: 0.25,
     },
-})
+});
